@@ -1,0 +1,82 @@
+<mvc:View
+        controllerName="sap.ui.mkx/controller.App"
+        xmlns="sap.m"
+        xmlns:l="sap.ui.layout"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:grid="sap.ui.layout.cssgrid"
+        displayBlock="true">
+        <App>
+            <pages>
+                <Page title="{i18n>homePageTitle}">
+                    <content>
+                        <grid:CSSGrid
+                                id="grid1"
+                                gridAutoFlow="Row"
+                                gridTemplateColumns="3fr 5fr 4fr 4fr 4fr 3fr"
+                                gridTemplateRows="repeat(7, 3rem)"
+                                gridGap="0.8rem 5px"
+                        width = "1200px">
+                            <Text text="Navigace" class = "table-header"/>
+                            <Text text="Zkušební parametr" class = "table-header"/>
+                            <Text text="Spodní hranice" class = "table-header"/>
+                            <Text text="Hodnota" class = "table-header"/>
+                            <Text text="Vrchní hranice" class = "table-header"/>
+                            <Text text="Jednotka" class = "table-header"/>
+                            <VBox class="history-cell">
+                                <layoutData>
+                                    <grid:GridItemLayoutData gridRow = "2 / 8" />
+                                </layoutData>
+                                <Text text="Historie" />
+                            </VBox>
+
+                            <Text text="Motorový proud" class="parameter-cell cell"/>
+                            <Text text="N/A" class="fixedvalue-cell cell"/>
+                            <Input class="input"/>
+                            <Text text="1.760" class="fixedvalue-cell cell"/>
+                            <Text text="A" class="cell"/>
+
+                            <Text text="DBV otevírací tlak" class="parameter-cell cell"/>
+                            <Text text="22.000" class="fixedvalue-cell cell"/>
+                            <Input class="input"/>
+                            <Text text="27.000" class="fixedvalue-cell cell"/>
+                            <Text text="bar" class="cell"/>
+
+                            <Text text="DS spínací tlak" class="parameter-cell cell"/>
+                            <Text text="10.000" class="fixedvalue-cell cell"/>
+                            <Input class="input"/>
+                            <Text text="14.000" class="fixedvalue-cell cell"/>
+                            <Text text="bar" class="cell"/>
+
+                            <Text text="Dodávané množství" class="parameter-cell cell"/>
+                            <Text text="0.180" class="fixedvalue-cell cell"/>
+                            <Input class="input"/>
+                            <Text text="0.310" class="fixedvalue-cell cell"/>
+                            <Text text="l/min" class="cell"/>
+
+                            <Text text="Číslo příkazu" class="parameter-cell cell"/>
+                            <Input class="input">
+                                <layoutData>
+                                    <grid:GridItemLayoutData gridColumn = "3 / 5" />
+                                </layoutData>
+                            </Input>
+                            <VBox class="img">
+                                <Image src="src/img/skf-logo-blue.svg"/>
+                                <Text text="MKx2"/>
+                                <layoutData>
+                                    <grid:GridItemLayoutData gridColumn = "5 / 7" gridRow="6 / 8"/>
+                                </layoutData>
+                            </VBox>
+
+                            <Text text="Číslo pumpy" class="parameter-cell cell"/>
+                            <Input class="input">
+                                <layoutData>
+                                    <grid:GridItemLayoutData gridColumn = "3 / 5" />
+                                </layoutData>
+                            </Input>
+
+                        </grid:CSSGrid>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+</mvc:View>
