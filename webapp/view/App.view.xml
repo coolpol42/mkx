@@ -29,11 +29,13 @@
                             <Text text="{i18n>value}" class = "table-header"/>
                             <Text text="{i18n>max}" class = "table-header"/>
                             <Text text="{i18n>unit}" class = "table-header"/>
-                            <VBox class="history-cell">
+                            <VBox class="navigation-cell">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridRow = "2 / 8" />
                                 </layoutData>
-                                <Text text="{i18n>history}" />
+                                <Button type = "Attention" text ="{i18n>load}" icon = "sap-icon://synchronize" width = "110px"/>
+                                <Button type = "Accept" text ="{i18n>save}" icon = "sap-icon://save" width = "110px"/>
+                                <Button type = "Standart" text ="{i18n>history}" icon = "sap-icon://history" width = "110px"/>
                             </VBox>
 
                             <Text text="{i18n>motor_current}" class="parameter-cell cell"/>

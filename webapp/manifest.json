@@ -43,8 +43,7 @@
       "phone": true
     },
     "supportedThemes": [
-      "sap_hcb",
-      "sap_bluecrystal"
+      "sap_horizon"
     ]
   },
   "sap.ui5": {
