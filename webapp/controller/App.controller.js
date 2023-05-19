@@ -3,16 +3,23 @@ sap.ui.define([
     "sap/m/MessageToast",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/resource/ResourceModel"
-], function (Controller, MessageToast, JSONModel, ResourceModel){
+], function (Controller, MessageToast, JSONModel, ResourceModel) {
     "use strict";
-    return Controller.extend("sap.ui.mkx.controller.App",{
-       showHello: function (){
-           // načtení msg z i18n modelu
-           var oBundle = this.getView().getModel("i18n").getResourceBundle();
+    return Controller.extend("sap.ui.mkx.controller.App", {
+        onInit: function () {
+            let primaryLanguage = "cz";
 
-           var sForWho = this.getView().getModel().getProperty("/forWho/name");
+            var oData = {
+                primaryLanguage: primaryLanguage
+            }
+            var oModel = new JSONModel(oData);
+            this.getView().setModel(oModel, "langSettings");
 
-          MessageToast.show(oBundle.getText("helloMsg", [sForWho]));
-       }
+            sap.ui.getCore().getConfiguration().setLanguage(primaryLanguage);
+        },
+        changeLanguage: function (oEvent) {
+            var selectedKey = oEvent.getSource().getSelectedKey();
+            sap.ui.getCore().getConfiguration().setLanguage(selectedKey);
+        }
     });
 })

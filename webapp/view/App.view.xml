@@ -1,7 +1,7 @@
 <mvc:View
         controllerName="sap.ui.mkx/controller.App"
         xmlns="sap.m"
-        xmlns:l="sap.ui.layout"
+        xmlns:core="sap.ui.core"
         xmlns:mvc="sap.ui.core.mvc"
         xmlns:grid="sap.ui.layout.cssgrid"
         displayBlock="true">
@@ -9,6 +9,13 @@
             <pages>
                 <Page title="{i18n>homePageTitle}">
                     <content>
+                        <Select change = ".changeLanguage" forceSelection = "false" id = "lang" selectedKey ="{langSettings>/primaryLanguage}">
+                            <items>
+                                <core:ListItem text="Čeština" key="cz" />
+                                <core:ListItem text="Angličtina" key="en" />
+                            </items>
+                        </Select>
+
                         <grid:CSSGrid
                                 id="grid1"
                                 gridAutoFlow="Row"
@@ -16,44 +23,44 @@
                                 gridTemplateRows="repeat(7, 3rem)"
                                 gridGap="0.8rem 5px"
                         width = "1200px">
-                            <Text text="Navigace" class = "table-header"/>
-                            <Text text="Zkušební parametr" class = "table-header"/>
-                            <Text text="Spodní hranice" class = "table-header"/>
-                            <Text text="Hodnota" class = "table-header"/>
-                            <Text text="Vrchní hranice" class = "table-header"/>
-                            <Text text="Jednotka" class = "table-header"/>
+                            <Text text="{i18n>navigation}" class = "table-header"/>
+                            <Text text="{i18n>testParameter}" class = "table-header"/>
+                            <Text text="{i18n>min}" class = "table-header"/>
+                            <Text text="{i18n>value}" class = "table-header"/>
+                            <Text text="{i18n>max}" class = "table-header"/>
+                            <Text text="{i18n>unit}" class = "table-header"/>
                             <VBox class="history-cell">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridRow = "2 / 8" />
                                 </layoutData>
-                                <Text text="Historie" />
+                                <Text text="{i18n>history}" />
                             </VBox>
 
-                            <Text text="Motorový proud" class="parameter-cell cell"/>
+                            <Text text="{i18n>motor_current}" class="parameter-cell cell"/>
                             <Text text="N/A" class="fixedvalue-cell cell"/>
                             <Input class="input"/>
                             <Text text="1.760" class="fixedvalue-cell cell"/>
                             <Text text="A" class="cell"/>
 
-                            <Text text="DBV otevírací tlak" class="parameter-cell cell"/>
+                            <Text text="{i18n>open_pressure}" class="parameter-cell cell"/>
                             <Text text="22.000" class="fixedvalue-cell cell"/>
                             <Input class="input"/>
                             <Text text="27.000" class="fixedvalue-cell cell"/>
                             <Text text="bar" class="cell"/>
 
-                            <Text text="DS spínací tlak" class="parameter-cell cell"/>
+                            <Text text="{i18n>switch_pressure}" class="parameter-cell cell"/>
                             <Text text="10.000" class="fixedvalue-cell cell"/>
                             <Input class="input"/>
                             <Text text="14.000" class="fixedvalue-cell cell"/>
                             <Text text="bar" class="cell"/>
 
-                            <Text text="Dodávané množství" class="parameter-cell cell"/>
+                            <Text text="{i18n>flow}" class="parameter-cell cell"/>
                             <Text text="0.180" class="fixedvalue-cell cell"/>
                             <Input class="input"/>
                             <Text text="0.310" class="fixedvalue-cell cell"/>
                             <Text text="l/min" class="cell"/>
 
-                            <Text text="Číslo příkazu" class="parameter-cell cell"/>
+                            <Text text="{i18n>command_id}" class="parameter-cell cell"/>
                             <Input class="input">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridColumn = "3 / 5" />
@@ -67,7 +74,7 @@
                                 </layoutData>
                             </VBox>
 
-                            <Text text="Číslo pumpy" class="parameter-cell cell"/>
+                            <Text text="{i18n>pump_id}" class="parameter-cell cell"/>
                             <Input class="input">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridColumn = "3 / 5" />
