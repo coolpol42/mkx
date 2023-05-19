@@ -34,31 +34,55 @@
                                     <grid:GridItemLayoutData gridRow = "2 / 8" />
                                 </layoutData>
                                 <Button type = "Attention" text ="{i18n>load}" icon = "sap-icon://synchronize" width = "110px"/>
-                                <Button type = "Accept" text ="{i18n>save}" icon = "sap-icon://save" width = "110px"/>
-                                <Button type = "Standart" text ="{i18n>history}" icon = "sap-icon://history" width = "110px"/>
+                                <Button type = "Accept" text ="{i18n>save}" icon = "sap-icon://save" width = "110px" press = ".saveValues"/>
+                                <Button text ="{i18n>history}" icon = "sap-icon://history" width = "110px" press = ".openHistory"/>
                             </VBox>
 
                             <Text text="{i18n>motor_current}" class="parameter-cell cell"/>
                             <Text text="N/A" class="fixedvalue-cell cell"/>
-                            <Input class="input" value = "{data>/record/motor_current}" valueLiveUpdate = "true"/>
+                            <Input class="input" type = "Number" value = "{
+                                        path: 'data>/record/motor_current',
+                                        type: 'sap.ui.model.type.Float',
+                                        formatOptions: {
+                                            minFractionDigits: 3,
+                                            maxFractionDigits: 3
+                                        }}"/>
                             <Text text="1.760" class="fixedvalue-cell cell"/>
                             <Text text="A" class="cell"/>
 
                             <Text text="{i18n>open_pressure}" class="parameter-cell cell"/>
                             <Text text="22.000" class="fixedvalue-cell cell"/>
-                            <Input class="input" value="{data>/record/open_pressure}" valueLiveUpdate = "true"/>
+                            <Input class="input" type = "Number" value = "{
+                                        path: 'data>/record/open_pressure',
+                                        type: 'sap.ui.model.type.Float',
+                                        formatOptions: {
+                                            minFractionDigits: 3,
+                                            maxFractionDigits: 3
+                                        }}"/>
                             <Text text="27.000" class="fixedvalue-cell cell"/>
                             <Text text="bar" class="cell"/>
 
                             <Text text="{i18n>switch_pressure}" class="parameter-cell cell"/>
                             <Text text="10.000" class="fixedvalue-cell cell"/>
-                            <Input class="input" value= "{data>/record/switch_pressure}" valueLiveUpdate = "true"/>
+                            <Input class="input" type = "Number"  value = "{
+                                        path: 'data>/record/switch_pressure',
+                                        type: 'sap.ui.model.type.Float',
+                                        formatOptions: {
+                                            minFractionDigits: 3,
+                                            maxFractionDigits: 3
+                                        }}"/>
                             <Text text="14.000" class="fixedvalue-cell cell"/>
                             <Text text="bar" class="cell"/>
 
                             <Text text="{i18n>flow}" class="parameter-cell cell"/>
                             <Text text="0.180" class="fixedvalue-cell cell"/>
-                            <Input class="input" value="{data>/record/flow}" valueLiveUpdate = "true"/>
+                            <Input class="input" type = "Number"  value = "{
+                                        path: 'data>/record/flow',
+                                        type: 'sap.ui.model.type.Float',
+                                        formatOptions: {
+                                            minFractionDigits: 3,
+                                            maxFractionDigits: 3
+                                        }}"/>
                             <Text text="0.310" class="fixedvalue-cell cell"/>
                             <Text text="l/min" class="cell"/>
 

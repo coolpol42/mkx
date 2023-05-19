@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+    xmlns = "sap.m"
+    xmlns:core = "sap.ui.core"
+    displayBlock="true">
+    <Dialog
+            id = "historyDialog"
+            title = "{i18n>history}">
+        <beginButton>
+            <Button text = "{i18n>close}" press = ".closeHistory" type = "Reject" />
+        </beginButton>
+            <Text text = "LOL"/>
+    </Dialog>
+</core:FragmentDefinition>
