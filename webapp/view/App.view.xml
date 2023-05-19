@@ -12,7 +12,7 @@
                         <Select change = ".changeLanguage" forceSelection = "false" id = "lang" selectedKey ="{langSettings>/primaryLanguage}">
                             <items>
                                 <core:ListItem text="Čeština" key="cz" />
-                                <core:ListItem text="Angličtina" key="en" />
+                                <core:ListItem text="English" key="en" />
                             </items>
                         </Select>
 
@@ -40,30 +40,30 @@
 
                             <Text text="{i18n>motor_current}" class="parameter-cell cell"/>
                             <Text text="N/A" class="fixedvalue-cell cell"/>
-                            <Input class="input"/>
+                            <Input class="input" value = "{data>/record/motor_current}" valueLiveUpdate = "true"/>
                             <Text text="1.760" class="fixedvalue-cell cell"/>
                             <Text text="A" class="cell"/>
 
                             <Text text="{i18n>open_pressure}" class="parameter-cell cell"/>
                             <Text text="22.000" class="fixedvalue-cell cell"/>
-                            <Input class="input"/>
+                            <Input class="input" value="{data>/record/open_pressure}" valueLiveUpdate = "true"/>
                             <Text text="27.000" class="fixedvalue-cell cell"/>
                             <Text text="bar" class="cell"/>
 
                             <Text text="{i18n>switch_pressure}" class="parameter-cell cell"/>
                             <Text text="10.000" class="fixedvalue-cell cell"/>
-                            <Input class="input"/>
+                            <Input class="input" value= "{data>/record/switch_pressure}" valueLiveUpdate = "true"/>
                             <Text text="14.000" class="fixedvalue-cell cell"/>
                             <Text text="bar" class="cell"/>
 
                             <Text text="{i18n>flow}" class="parameter-cell cell"/>
                             <Text text="0.180" class="fixedvalue-cell cell"/>
-                            <Input class="input"/>
+                            <Input class="input" value="{data>/record/flow}" valueLiveUpdate = "true"/>
                             <Text text="0.310" class="fixedvalue-cell cell"/>
                             <Text text="l/min" class="cell"/>
 
                             <Text text="{i18n>command_id}" class="parameter-cell cell"/>
-                            <Input class="input">
+                            <Input class="input" value = "{data>/record/command_id}" valueLiveUpdate = "true">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridColumn = "3 / 5" />
                                 </layoutData>
@@ -77,7 +77,7 @@
                             </VBox>
 
                             <Text text="{i18n>pump_id}" class="parameter-cell cell"/>
-                            <Input class="input">
+                            <Input class="input" value = "{data>/record/pump_id}" valueLiveUpdate = "true">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridColumn = "3 / 5" />
                                 </layoutData>

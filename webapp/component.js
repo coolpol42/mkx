@@ -13,14 +13,25 @@ sap.ui.define([
             // zavolání init funkce rodiče
             UIComponent.prototype.init.apply(this, arguments);
             // nastavení data modelů
+
+            let primaryLanguage = "cz";
+            var oModelLang = new JSONModel({primaryLanguage: primaryLanguage});
+            this.setModel(oModelLang, "langSettings");
+
+            sap.ui.getCore().getConfiguration().setLanguage(primaryLanguage);
+
             var oData = {
-                forWho: {
-                    name: "Josef Polák"
+                record: {
+                    motor_current: 0.000,
+                    open_pressure: 0.000,
+                    switch_pressure: 0.000,
+                    flow: 0.000,
+                    command_id: "",
+                    command_name: "",
                 }
             }
             var oModel = new JSONModel(oData);
-            this.setModel(oModel);
-
+            this.setModel(oModel, "data");
             // Nastavení UI textů - již není potřeba v manifest.json
             // var i18Model = new ResourceModel({
             //     bundleName: "sap.ui.mkx.i18n.i18n",
