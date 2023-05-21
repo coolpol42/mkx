@@ -41,7 +41,7 @@
                             <Text text="{i18n>motor_current}" class="parameter-cell cell"/>
                             <Text text="N/A" class="fixedvalue-cell cell"/>
                             <Input class="input" type = "Number" value = "{
-                                        path: 'data>/record/motor_current',
+                                        path: 'newData>/record/motor_current',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
@@ -53,7 +53,7 @@
                             <Text text="{i18n>open_pressure}" class="parameter-cell cell"/>
                             <Text text="22.000" class="fixedvalue-cell cell"/>
                             <Input class="input" type = "Number" value = "{
-                                        path: 'data>/record/open_pressure',
+                                        path: 'newData>/record/open_pressure',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
@@ -65,7 +65,7 @@
                             <Text text="{i18n>switch_pressure}" class="parameter-cell cell"/>
                             <Text text="10.000" class="fixedvalue-cell cell"/>
                             <Input class="input" type = "Number"  value = "{
-                                        path: 'data>/record/switch_pressure',
+                                        path: 'newData>/record/switch_pressure',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
@@ -77,7 +77,7 @@
                             <Text text="{i18n>flow}" class="parameter-cell cell"/>
                             <Text text="0.180" class="fixedvalue-cell cell"/>
                             <Input class="input" type = "Number"  value = "{
-                                        path: 'data>/record/flow',
+                                        path: 'newData>/record/flow',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
@@ -87,7 +87,7 @@
                             <Text text="l/min" class="cell"/>
 
                             <Text text="{i18n>command_id}" class="parameter-cell cell"/>
-                            <Input class="input" value = "{data>/record/command_id}" valueLiveUpdate = "true">
+                            <Input class="input" value = "{newData>/record/command_id}" valueLiveUpdate = "true">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridColumn = "3 / 5" />
                                 </layoutData>
@@ -101,7 +101,7 @@
                             </VBox>
 
                             <Text text="{i18n>pump_id}" class="parameter-cell cell"/>
-                            <Input class="input" value = "{data>/record/pump_id}" valueLiveUpdate = "true">
+                            <Input class="input" value = "{newData>/record/pump_id}" valueLiveUpdate = "true">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridColumn = "3 / 5" />
                                 </layoutData>

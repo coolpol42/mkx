@@ -13,7 +13,9 @@ sap.ui.define([
             sap.ui.getCore().getConfiguration().setLanguage(selectedKey);
         },
         saveValues: function (){
-            let data = this.getView().getModel("data").getProperty("record");
+            let data = this.getView().getModel("newData").getProperty("record");
+            let oModel = this.getView().getModel("Data");
+
         },
         openHistory: function (){
             var oView = this.getView();

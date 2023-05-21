@@ -31,7 +31,7 @@ sap.ui.define([
                 }
             }
             var oModel = new JSONModel(oData);
-            this.setModel(oModel, "data");
+            this.setModel(oModel, "newData");
             // Nastavení UI textů - již není potřeba v manifest.json
             // var i18Model = new ResourceModel({
             //     bundleName: "sap.ui.mkx.i18n.i18n",

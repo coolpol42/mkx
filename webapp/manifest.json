@@ -76,10 +76,6 @@
           "fallbackLocale": "cz"
         },
         "uri": "<uriRelativeToManifest>"
-      },
-      "": {
-        "dataSource": "<dataSourceAlias>",
-        "settings": {}
       }
     },
     "rootView": {
