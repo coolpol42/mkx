@@ -16,6 +16,23 @@ sap.ui.define([
             let data = this.getView().getModel("values").getProperty("/record");
 
         },
+        fetchData: function() {
+            var that = this;
+            jQuery.ajax({
+                url: "http://localhost/backend.php",
+                method: "GET",
+                data: {
+                    action: "fetchData"
+                },
+                success: function(response) {
+                    var oModel = that.getView().getModel();
+                    oModel.setProperty("/data", JSON.parse(response));
+                },
+                error: function(error) {
+                    MessageToast.show("Error fetching data: " + String.valueOf(error));
+                }
+            });
+        },
         loadValues: function (){
             this.getView().getModel("values").setProperty("/record", {
                 motor_current: 1.7,
@@ -28,6 +45,7 @@ sap.ui.define([
             MessageToast.show(getI18nText("loadValuesSccess", this));
         },
         openHistory: function (){
+            this.fetchData();
             var oView = this.getView();
 
             if (!this.byId("historyDialog")) {

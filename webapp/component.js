@@ -20,6 +20,9 @@ sap.ui.define([
 
             sap.ui.getCore().getConfiguration().setLanguage(primaryLanguage);
 
+            var oModel = new JSONModel();
+            this.setModel(oModel);
+
             var oData = {
                 record: {
                     motor_current: 0.000,
@@ -30,7 +33,7 @@ sap.ui.define([
                     pump_id: "",
                 }
             }
-            var oModel = new JSONModel(oData);
+            oModel = new JSONModel(oData);
             this.setModel(oModel, "values");
             
             oData = {
