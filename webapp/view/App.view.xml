@@ -7,7 +7,7 @@
         displayBlock="true">
         <App>
             <pages>
-                <Page title="{i18n>homePageTitle}">
+                <Page title="{i18n>appTitle}">
                     <content>
                         <Select change = ".changeLanguage" forceSelection = "false" id = "lang" selectedKey ="{langSettings>/primaryLanguage}">
                             <items>
@@ -33,61 +33,61 @@
                                 <layoutData>
                                     <grid:GridItemLayoutData gridRow = "2 / 8" />
                                 </layoutData>
-                                <Button type = "Attention" text ="{i18n>load}" icon = "sap-icon://synchronize" width = "110px"/>
+                                <Button type = "Attention" text ="{i18n>load}" icon = "sap-icon://synchronize" width = "110px" press = ".loadValues"/>
                                 <Button type = "Accept" text ="{i18n>save}" icon = "sap-icon://save" width = "110px" press = ".saveValues"/>
                                 <Button text ="{i18n>history}" icon = "sap-icon://history" width = "110px" press = ".openHistory"/>
                             </VBox>
 
                             <Text text="{i18n>motor_current}" class="parameter-cell cell"/>
-                            <Text text="N/A" class="fixedvalue-cell cell"/>
+                            <Text text="{limits>/lowLim/motor_current}" class="fixedvalue-cell cell"/>
                             <Input class="input" type = "Number" value = "{
-                                        path: 'newData>/record/motor_current',
+                                        path: 'values>/record/motor_current',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
                                             maxFractionDigits: 3
                                         }}"/>
-                            <Text text="1.760" class="fixedvalue-cell cell"/>
+                            <Text text="{limits>/upLim/motor_current}" class="fixedvalue-cell cell"/>
                             <Text text="A" class="cell"/>
 
                             <Text text="{i18n>open_pressure}" class="parameter-cell cell"/>
-                            <Text text="22.000" class="fixedvalue-cell cell"/>
+                            <Text text="{limits>/lowLim/open_pressure}" class="fixedvalue-cell cell"/>
                             <Input class="input" type = "Number" value = "{
-                                        path: 'newData>/record/open_pressure',
+                                        path: 'values>/record/open_pressure',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
                                             maxFractionDigits: 3
                                         }}"/>
-                            <Text text="27.000" class="fixedvalue-cell cell"/>
+                            <Text text="{limits>/upLim/open_pressure}" class="fixedvalue-cell cell"/>
                             <Text text="bar" class="cell"/>
 
                             <Text text="{i18n>switch_pressure}" class="parameter-cell cell"/>
-                            <Text text="10.000" class="fixedvalue-cell cell"/>
+                            <Text text="{limits>/lowLim/switch_pressure}" class="fixedvalue-cell cell"/>
                             <Input class="input" type = "Number"  value = "{
-                                        path: 'newData>/record/switch_pressure',
+                                        path: 'values>/record/switch_pressure',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
                                             maxFractionDigits: 3
                                         }}"/>
-                            <Text text="14.000" class="fixedvalue-cell cell"/>
+                            <Text text="{limits>/upLim/switch_pressure}" class="fixedvalue-cell cell"/>
                             <Text text="bar" class="cell"/>
 
                             <Text text="{i18n>flow}" class="parameter-cell cell"/>
-                            <Text text="0.180" class="fixedvalue-cell cell"/>
+                            <Text text="{limits>/lowLim/flow}" class="fixedvalue-cell cell"/>
                             <Input class="input" type = "Number"  value = "{
-                                        path: 'newData>/record/flow',
+                                        path: 'values>/record/flow',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
                                             maxFractionDigits: 3
                                         }}"/>
-                            <Text text="0.310" class="fixedvalue-cell cell"/>
+                            <Text text="{limits>/upLim/flow}" class="fixedvalue-cell cell"/>
                             <Text text="l/min" class="cell"/>
 
                             <Text text="{i18n>command_id}" class="parameter-cell cell"/>
-                            <Input class="input" value = "{newData>/record/command_id}" valueLiveUpdate = "true">
+                            <Input class="input" value = "{values>/record/command_id}" valueLiveUpdate = "true">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridColumn = "3 / 5" />
                                 </layoutData>
@@ -101,7 +101,7 @@
                             </VBox>
 
                             <Text text="{i18n>pump_id}" class="parameter-cell cell"/>
-                            <Input class="input" value = "{newData>/record/pump_id}" valueLiveUpdate = "true">
+                            <Input class="input" value = "{values>/record/pump_id}" valueLiveUpdate = "true">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridColumn = "3 / 5" />
                                 </layoutData>

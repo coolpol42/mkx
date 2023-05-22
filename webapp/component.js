@@ -27,11 +27,28 @@ sap.ui.define([
                     switch_pressure: 0.000,
                     flow: 0.000,
                     command_id: "",
-                    command_name: "",
+                    pump_id: "",
                 }
             }
             var oModel = new JSONModel(oData);
-            this.setModel(oModel, "newData");
+            this.setModel(oModel, "values");
+            
+            oData = {
+                lowLim: {
+                    motor_current: "N/A",
+                    open_pressure: "22.000",
+                    switch_pressure: "10.000",
+                    flow: "0.180",
+                },
+                upLim: {
+                    motor_current: "1.760",
+                    open_pressure: "27.000",
+                    switch_pressure: "14.000",
+                    flow: "0.310",
+                }
+            }
+            oModel = new JSONModel(oData);
+            this.setModel(oModel, "limits");
 
             // Nastavení UI textů - již není potřeba v manifest.json
             // var i18Model = new ResourceModel({

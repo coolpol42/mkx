@@ -13,8 +13,19 @@ sap.ui.define([
             sap.ui.getCore().getConfiguration().setLanguage(selectedKey);
         },
         saveValues: function (){
-            let data = this.getView().getModel("newData").getProperty("record");
+            let data = this.getView().getModel("values").getProperty("/record");
 
+        },
+        loadValues: function (){
+            this.getView().getModel("values").setProperty("/record", {
+                motor_current: 1.7,
+                open_pressure: 23.1,
+                switch_pressure: 10.2,
+                flow: 0.2,
+                command_id: "load_values_command_id",
+                pump_id: "load_values_pump_id",
+            });
+            MessageToast.show(getI18nText("loadValuesSccess", this));
         },
         openHistory: function (){
             var oView = this.getView();
@@ -31,4 +42,8 @@ sap.ui.define([
             this.byId("historyDialog").close()
         }
     });
-})
+});
+
+function getI18nText(key, that) {
+    return that.getView().getModel("i18n").getResourceBundle().getText(key);
+}

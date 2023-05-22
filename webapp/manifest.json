@@ -12,10 +12,10 @@
       "version": "0.0.1"
     },
     "title": "{{appTitle}}",
-    "description": "{{appDesc}}",
+    "description": "{{appDescription}}",
     "tags": {
       "keywords": [
-        "{{<keyword1>}}", "{{<keyword2>}}"
+        "mkx"
       ]
     },
     "dataSources": {
