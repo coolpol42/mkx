@@ -64,7 +64,8 @@
       "minUI5Version": "1.60",
       "libs": {
         "sap.m": {},
-        "sap.f": {}
+        "sap.f": {},
+        "sap.ui.core": {}
       }
     },
     "models": {

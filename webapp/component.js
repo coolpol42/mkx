@@ -1,8 +1,8 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/model/resource/ResourceModel"
-], function (UIComponent, JSONModel, ResourceModel) {
+    "sap/ui/model/resource/ResourceModel",
+], function (UIComponent, JSONModel) {
     "use strict";
     return UIComponent.extend("sap.ui.mkx.Component", {
 
@@ -32,6 +32,7 @@ sap.ui.define([
             }
             var oModel = new JSONModel(oData);
             this.setModel(oModel, "newData");
+
             // Nastavení UI textů - již není potřeba v manifest.json
             // var i18Model = new ResourceModel({
             //     bundleName: "sap.ui.mkx.i18n.i18n",

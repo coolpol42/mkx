@@ -8,6 +8,27 @@
         <beginButton>
             <Button text = "{i18n>close}" press = ".closeHistory" type = "Reject" />
         </beginButton>
-            <Text text = "LOL"/>
+        <Table items="{Data>/data}">
+            <columns>
+                <Column>
+                    <Text text="ID" />
+                </Column>
+                <Column>
+                    <Text text="Name" />
+                </Column>
+                <Column>
+                    <Text text="Salary" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{Data>id}" />
+                        <Text text="{Data>motor_current}" />
+                        <Text text="{Data>motor_current}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
     </Dialog>
 </core:FragmentDefinition>
