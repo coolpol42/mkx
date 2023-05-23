@@ -16,7 +16,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// API endpoint to fetch data from MySQL
 function fetchData() {
     global $conn;
 
@@ -35,7 +34,6 @@ function fetchData() {
     }
 }
 
-// API endpoint to insert data into MySQL
 function insertData($data) {
     global $conn;
 
@@ -49,11 +47,18 @@ function insertData($data) {
         echo json_encode(array('success' => false, 'error' => $conn->error));
     }
 }
+function deleteData($id) {
+    global $conn;
 
+    $sql = "DELETE FROM mkx.data WHERE id = {$id}";
 
-// Add more API endpoints for update and delete operations
+    if ($conn->query($sql) === TRUE) {
+        echo json_encode(array('success' => true));
+    } else {
+        echo json_encode(array('success' => false, 'error' => $conn->error));
+    }
+}
 
-// Check the requested API endpoint and call the corresponding function
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if ($_GET['action'] === 'fetchData') {
         fetchData();
@@ -62,9 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if ($_POST['action'] === 'insertData' && isset($_POST["data"])) {
         insertData(json_decode($_POST["data"], true));
     }
-    elseif ($_POST['action'] === 'deleteData') {
-        $id = $_POST['id'];
-        deleteData($id);
+    elseif ($_POST['action'] === 'deleteData' && isset($_POST["id"])) {
+        deleteData($_POST['id']);
     }
 }
 ?>
