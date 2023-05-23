@@ -1,4 +1,8 @@
 <?php
+header('Access-Control-Allow-Origin: http://localhost:8080');
+header('Access-Control-Allow-Methods: GET, POST');
+header('Access-Control-Allow-Headers: Content-Type');
+
 $host = 'localhost';
 $username = 'root';
 $password = '';
@@ -16,7 +20,7 @@ if ($conn->connect_error) {
 function fetchData() {
     global $conn;
 
-    $sql = "SELECT * FROM data";
+    $sql = "SELECT * FROM mkx.data ORDER BY dtm_create DESC";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -32,10 +36,12 @@ function fetchData() {
 }
 
 // API endpoint to insert data into MySQL
-function insertData($name, $age) {
+function insertData($data) {
     global $conn;
 
-    $sql = "INSERT INTO data (name, age) VALUES ('$name', $age)";
+    $currentDate = date('Y-m-d H:i:s');
+    $sql = "INSERT INTO mkx.data (motor_current, open_pressure, switch_pressure, flow, command_id, pump_id, dtm_create)
+            VALUES ({$data['motor_current']}, {$data['open_pressure']}, {$data['switch_pressure']}, {$data['flow']}, '{$data['command_id']}', '{$data['pump_id']}', '{$currentDate}')";
 
     if ($conn->query($sql) === TRUE) {
         echo json_encode(array('success' => true));
@@ -43,6 +49,7 @@ function insertData($name, $age) {
         echo json_encode(array('success' => false, 'error' => $conn->error));
     }
 }
+
 
 // Add more API endpoints for update and delete operations
 
@@ -52,15 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         fetchData();
     }
 } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($_POST['action'] === 'insertData') {
-        $name = $_POST['name'];
-        $age = $_POST['age'];
-        insertData($name, $age);
+    if ($_POST['action'] === 'insertData' && isset($_POST["data"])) {
+        insertData(json_decode($_POST["data"], true));
     }
     elseif ($_POST['action'] === 'deleteData') {
         $id = $_POST['id'];
-        $name = $_POST['name'];
-        $age = $_POST['age'];
         deleteData($id);
     }
 }
