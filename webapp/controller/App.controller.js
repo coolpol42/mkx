@@ -149,6 +149,7 @@ sap.ui.define([
             let toDelete = oEvent.id;
             MessageBox.warning(getI18nText("dataLossWarning", this), {
                 actions: [getI18nText("cancel", this), getI18nText("delete", this)],
+                emphasizedAction: getI18nText("delete", this),
                 title: getI18nText("deleteWarningTitle", this, [toDelete]),
                 onClose: function (sAction) {
                     if (sAction === getI18nText("delete", that)) {
