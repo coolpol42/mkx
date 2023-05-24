@@ -24,7 +24,7 @@ sap.ui.define([
             this.setModel(oModel);
 
             var oData = {
-                record: {
+                entry: {
                     motor_current: 0.000,
                     open_pressure: 0.000,
                     switch_pressure: 0.000,
@@ -48,7 +48,8 @@ sap.ui.define([
                     open_pressure: "27.000",
                     switch_pressure: "14.000",
                     flow: "0.310",
-                }
+                },
+                minLength: 3
             }
             oModel = new JSONModel(oData);
             this.setModel(oModel, "limits");

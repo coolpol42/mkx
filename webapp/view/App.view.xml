@@ -40,8 +40,8 @@
 
                             <Text text="{i18n>motor_current}" class="parameter-cell cell"/>
                             <Text text="{limits>/lowLim/motor_current}" class="fixedvalue-cell cell"/>
-                            <Input class="input" type = "Number" value = "{
-                                        path: 'values>/record/motor_current',
+                            <Input id = "motor_currentInput" class="input" type = "Number" change = ".clearError" value = "{
+                                        path: 'values>/entry/motor_current',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
@@ -52,8 +52,8 @@
 
                             <Text text="{i18n>open_pressure}" class="parameter-cell cell"/>
                             <Text text="{limits>/lowLim/open_pressure}" class="fixedvalue-cell cell"/>
-                            <Input class="input" type = "Number" value = "{
-                                        path: 'values>/record/open_pressure',
+                            <Input id = "open_pressureInput" class="input" type = "Number" change = ".clearError" value = "{
+                                        path: 'values>/entry/open_pressure',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
@@ -64,8 +64,8 @@
 
                             <Text text="{i18n>switch_pressure}" class="parameter-cell cell"/>
                             <Text text="{limits>/lowLim/switch_pressure}" class="fixedvalue-cell cell"/>
-                            <Input class="input" type = "Number"  value = "{
-                                        path: 'values>/record/switch_pressure',
+                            <Input id = "switch_pressureInput" class="input" type = "Number" change = ".clearError" value = "{
+                                        path: 'values>/entry/switch_pressure',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
@@ -76,8 +76,8 @@
 
                             <Text text="{i18n>flow}" class="parameter-cell cell"/>
                             <Text text="{limits>/lowLim/flow}" class="fixedvalue-cell cell"/>
-                            <Input class="input" type = "Number"  value = "{
-                                        path: 'values>/record/flow',
+                            <Input id = "flowInput" class="input" type = "Number" change = ".clearError" value = "{
+                                        path: 'values>/entry/flow',
                                         type: 'sap.ui.model.type.Float',
                                         formatOptions: {
                                             minFractionDigits: 3,
@@ -87,7 +87,7 @@
                             <Text text="l/min" class="cell"/>
 
                             <Text text="{i18n>command_id}" class="parameter-cell cell"/>
-                            <Input class="input" value = "{values>/record/command_id}" valueLiveUpdate = "true">
+                            <Input class="input" id = "command_idInput" change = ".clearError" value = "{values>/entry/command_id}" maxLength = "30" valueLiveUpdate = "true">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridColumn = "3 / 5" />
                                 </layoutData>
@@ -101,7 +101,7 @@
                             </VBox>
 
                             <Text text="{i18n>pump_id}" class="parameter-cell cell"/>
-                            <Input class="input" value = "{values>/record/pump_id}" valueLiveUpdate = "true">
+                            <Input class="input" id = "pump_idInput" change = ".clearError" value = "{values>/entry/pump_id}" maxLength = "30" valueLiveUpdate = "true">
                                 <layoutData>
                                     <grid:GridItemLayoutData gridColumn = "3 / 5" />
                                 </layoutData>
