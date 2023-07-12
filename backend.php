@@ -64,7 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if ($_GET['action'] === 'fetchData') {
         fetchData();
     }
-} else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+}
+else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['action'] === 'insertData' && isset($_POST["data"])) {
         insertData(json_decode($_POST["data"], true));
     }
